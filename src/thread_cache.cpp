@@ -2,6 +2,8 @@
 #include <halloc/page_heap.h>
 #include <cstdlib>
 #include <cstring>
+#include <thread>
+#include <functional>
 
 namespace halloc {
 
@@ -42,6 +44,36 @@ void* ThreadCache::allocate(size_t size) {
         return ptr;
     }
     
+    // Before requesting a new span from the page heap, try to drain
+    // remote frees that belong to this thread.
+    uint64_t current_thread_id =
+        static_cast<uint64_t>(std::hash<std::thread::id>{}(std::this_thread::get_id()));
+    Span* drained = get_page_heap()->drain_remote_frees(current_thread_id);
+    while (drained) {
+        Span* next = drained->next;
+        drained->next = nullptr;
+
+        // Register this thread as the span owner
+        get_page_heap()->register_span_owner(drained, current_thread_id);
+
+        // Carve the span's memory into blocks and push into the local free list
+        size_t sc = drained->size_class;
+        size_t block_size = SIZE_CLASSES[sc].size;
+        size_t num_blocks = drained->capacity / block_size;
+
+        char* memory = static_cast<char*>(drained->memory);
+        for (size_t i = 0; i < num_blocks - 1; ++i) {
+            void* ptr = memory + (i * block_size);
+            *static_cast<void**>(ptr) = memory + ((i + 1) * block_size);
+        }
+        *static_cast<void**>(static_cast<void*>(memory + (num_blocks - 1) * block_size)) = free_lists_[sc];
+        free_lists_[sc] = memory;
+        free_counts_[sc] += num_blocks;
+        cached_bytes_ += num_blocks * block_size;
+
+        drained = next;
+    }
+
     size_t batch_size = get_batch_size(class_idx);
     size_t span_pages = SIZE_CLASSES[class_idx].size * batch_size / os::get_page_size();
     if (span_pages < 4) span_pages = 4;
@@ -66,6 +98,17 @@ void ThreadCache::deallocate(void* ptr, size_t size) {
     if (is_large(size)) {
         get_page_heap()->deallocate_large(reinterpret_cast<Span**>(ptr)[-1]);
         return;
+    }
+    
+    // Check if this pointer belongs to a remote thread's span
+    Span* span = get_page_heap()->pagemap_lookup(ptr);
+    if (span) {
+        uint64_t current_thread_id =
+            static_cast<uint64_t>(std::hash<std::thread::id>{}(std::this_thread::get_id()));
+        if (span->owner_thread_id != current_thread_id) {
+            get_page_heap()->record_remote_free(span);
+            return;
+        }
     }
     
     size_t class_idx = get_size_class(size);

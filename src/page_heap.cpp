@@ -7,8 +7,20 @@ namespace halloc {
 
 static PageHeap* g_page_heap = nullptr;
 
-PageHeap::PageHeap() = default;
+PageHeap::PageHeap() {
+    // Initialize pagemap with a reasonable base address range
+    // The pagemap covers PAGEMAP_ENTRIES * (1 << PAGEMAP_LEVEL_BITS) bytes
+    // starting from base_addr = 0, covering the entire user address space
+    // in a single-level lookup
+    uintptr_t base = 0;
+    size_t size = static_cast<size_t>(PAGEMAP_ENTRIES) << PAGEMAP_LEVEL_BITS;
+    pagemap_ = create_pagemap(base, size);
+}
 PageHeap::~PageHeap() {
+    if (pagemap_) {
+        destroy_pagemap(pagemap_);
+        pagemap_ = nullptr;
+    }
     for (auto& kv : free_spans_) {
         for (Span* s : kv.second) {
             if (s->memory) {
@@ -147,6 +159,73 @@ void PageHeap::deallocate_large(Span* span) {
     }
     
     delete span;
+}
+
+void PageHeap::register_span_owner(Span* span, uint64_t thread_id) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    span_to_owner_[span] = thread_id;
+    span->owner_thread_id = thread_id;
+}
+
+uint64_t PageHeap::get_span_owner(Span* span) const {
+    std::lock_guard<std::mutex> lock(mutex_);
+    auto it = span_to_owner_.find(span);
+    if (it != span_to_owner_.end()) {
+        return it->second;
+    }
+    return 0;
+}
+
+void PageHeap::record_remote_free(Span* span) {
+    std::lock_guard<std::mutex> lock(mutex_);
+
+    if (span->remote_free_count.load(std::memory_order_relaxed) > 0) {
+        return;
+    }
+
+    span->remote_free_count.store(1, std::memory_order_relaxed);
+    span->next = remote_free_list_;
+    remote_free_list_ = span;
+}
+
+Span* PageHeap::drain_remote_frees(uint64_t thread_id) {
+    std::lock_guard<std::mutex> lock(mutex_);
+
+    Span* result = nullptr;
+    Span** tail = &result;
+
+    Span* prev = nullptr;
+    Span* curr = remote_free_list_;
+
+    while (curr) {
+        Span* next = curr->next;
+
+        auto it = span_to_owner_.find(curr);
+        uint64_t owner = (it != span_to_owner_.end()) ? it->second : 0;
+
+        if (owner == thread_id) {
+            if (prev) {
+                prev->next = next;
+            } else {
+                remote_free_list_ = next;
+            }
+
+            curr->remote_free_count.store(0, std::memory_order_relaxed);
+            curr->next = nullptr;
+            *tail = curr;
+            tail = &curr->next;
+        } else {
+            prev = curr;
+        }
+
+        curr = next;
+    }
+
+    return result;
+}
+
+Span* PageHeap::pagemap_lookup(void* ptr) const {
+    return halloc::pagemap_lookup(pagemap_, ptr);
 }
 
 PageHeap* get_page_heap() {

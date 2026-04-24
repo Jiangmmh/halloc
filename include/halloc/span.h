@@ -18,6 +18,8 @@ struct alignas(64) Span {
     uint32_t capacity;
     uint32_t live_count;
     uint32_t local_free_count;
+    uint64_t owner_thread_id;
+    std::atomic<uint32_t> remote_free_count;
     SpanState state;
     bool is_large;
     void* memory;
