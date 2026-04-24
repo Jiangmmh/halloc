@@ -1,10 +1,10 @@
-Start testing: Apr 24 22:42 CST
+Start testing: Apr 24 22:59 CST
 ----------------------------------------------------------
 1/2 Testing: smoke_halloc_unit_tests
 1/2 Test: smoke_halloc_unit_tests
 Command: "/Users/minghan/minghan/cs/cpp-projs/halloc/build-bench/halloc_unit_tests" "LABELS" "unit;smoke"
 Directory: /Users/minghan/minghan/cs/cpp-projs/halloc/build-bench
-"smoke_halloc_unit_tests" start time: Apr 24 22:42 CST
+"smoke_halloc_unit_tests" start time: Apr 24 22:59 CST
 Output:
 ----------------------------------------------------------
 halloc unit tests
@@ -12,7 +12,7 @@ halloc unit tests
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"smoke_halloc_unit_tests" end time: Apr 24 22:42 CST
+"smoke_halloc_unit_tests" end time: Apr 24 22:59 CST
 "smoke_halloc_unit_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -20,7 +20,7 @@ Test Passed.
 2/2 Test: smoke_halloc_stress_tests
 Command: "/Users/minghan/minghan/cs/cpp-projs/halloc/build-bench/halloc_stress_tests" "LABELS" "stress;smoke"
 Directory: /Users/minghan/minghan/cs/cpp-projs/halloc/build-bench
-"smoke_halloc_stress_tests" start time: Apr 24 22:42 CST
+"smoke_halloc_stress_tests" start time: Apr 24 22:59 CST
 Output:
 ----------------------------------------------------------
 halloc stress tests placeholder
@@ -28,8 +28,8 @@ halloc stress tests placeholder
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"smoke_halloc_stress_tests" end time: Apr 24 22:42 CST
+"smoke_halloc_stress_tests" end time: Apr 24 22:59 CST
 "smoke_halloc_stress_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Apr 24 22:42 CST
+End testing: Apr 24 22:59 CST

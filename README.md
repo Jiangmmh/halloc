@@ -89,6 +89,23 @@ Key findings:
 - **Alloc-only contention**: Regresses at 64+ threads (central page heap bottleneck)
 - **System malloc**: Flat ~10 ns/op across all thread counts
 
+### Cross-Thread Free (Remote-Free Path)
+
+| test | alloc | free | ops | time | ops/sec |
+|------|------:|-----:|----:|-----:|--------:|
+| producer_consumer | 1 | 1 | 20K | 0.29 ms | 69 M/s |
+| fan_out | 8 | 1 | 32K | 0.82 ms | 39 M/s |
+| fan_in | 1 | 4 | 16K | 0.34 ms | 47 M/s |
+| producer_consumer(2,2) | 2 | 2 | 40K | 0.81 ms | 49 M/s |
+| producer_consumer(4,4) | 4 | 4 | 80K | 2.13 ms | 37 M/s |
+| fan_out_extreme(16,1) | 16 | 1 | 64K | 1.68 ms | 38 M/s |
+| fan_in_extreme(1,8) | 1 | 8 | 16K | 0.36 ms | 44 M/s |
+| mixed_size_free | 1 | 1 | 20K | 0.32 ms | 62 M/s |
+| roundtrip | 1 | 1 | 20K | 0.30 ms | 67 M/s |
+| mixed_st | 2 | 2 | 30K | 0.20 ms | 151 M/s |
+
+Remote-free path supports: producer/consumer, fan-out, fan-in, mixed sizes, and roundtrip patterns.
+
 Run benchmarks:
 ```bash
 ./build-bench/halloc_bench
