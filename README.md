@@ -116,6 +116,10 @@ Run benchmarks:
 
 See [DESIGN.md](DESIGN.md) for the full design document including goals, non-goals, size class strategy, and implementation roadmap.
 
+## Learning
+
+New to memory allocators? Start with the [Tutorial](tutorial.md) - a step-by-step guide covering memory allocation basics through halloc's implementation.
+
 ## Requirements
 
 - C++17 compiler
