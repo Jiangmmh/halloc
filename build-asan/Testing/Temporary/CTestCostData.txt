@@ -1,0 +1,3 @@
+smoke_halloc_unit_tests 3 0.00307098
+smoke_halloc_stress_tests 3 0.00212355
+---

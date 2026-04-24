@@ -1,0 +1,56 @@
+[
+{
+  "directory": "/Users/minghan/minghan/cs/cpp-projs/halloc/build-asan",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/minghan/minghan/cs/cpp-projs/halloc/include -std=c++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.1 -o CMakeFiles/halloc.dir/src/halloc.cpp.o -c /Users/minghan/minghan/cs/cpp-projs/halloc/src/halloc.cpp",
+  "file": "/Users/minghan/minghan/cs/cpp-projs/halloc/src/halloc.cpp",
+  "output": "CMakeFiles/halloc.dir/src/halloc.cpp.o"
+},
+{
+  "directory": "/Users/minghan/minghan/cs/cpp-projs/halloc/build-asan",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/minghan/minghan/cs/cpp-projs/halloc/include -std=c++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.1 -o CMakeFiles/halloc.dir/src/os.cpp.o -c /Users/minghan/minghan/cs/cpp-projs/halloc/src/os.cpp",
+  "file": "/Users/minghan/minghan/cs/cpp-projs/halloc/src/os.cpp",
+  "output": "CMakeFiles/halloc.dir/src/os.cpp.o"
+},
+{
+  "directory": "/Users/minghan/minghan/cs/cpp-projs/halloc/build-asan",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/minghan/minghan/cs/cpp-projs/halloc/include -std=c++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.1 -o CMakeFiles/halloc.dir/src/span.cpp.o -c /Users/minghan/minghan/cs/cpp-projs/halloc/src/span.cpp",
+  "file": "/Users/minghan/minghan/cs/cpp-projs/halloc/src/span.cpp",
+  "output": "CMakeFiles/halloc.dir/src/span.cpp.o"
+},
+{
+  "directory": "/Users/minghan/minghan/cs/cpp-projs/halloc/build-asan",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/minghan/minghan/cs/cpp-projs/halloc/include -std=c++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.1 -o CMakeFiles/halloc.dir/src/page_heap.cpp.o -c /Users/minghan/minghan/cs/cpp-projs/halloc/src/page_heap.cpp",
+  "file": "/Users/minghan/minghan/cs/cpp-projs/halloc/src/page_heap.cpp",
+  "output": "CMakeFiles/halloc.dir/src/page_heap.cpp.o"
+},
+{
+  "directory": "/Users/minghan/minghan/cs/cpp-projs/halloc/build-asan",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/minghan/minghan/cs/cpp-projs/halloc/include -std=c++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.1 -o CMakeFiles/halloc.dir/src/thread_cache.cpp.o -c /Users/minghan/minghan/cs/cpp-projs/halloc/src/thread_cache.cpp",
+  "file": "/Users/minghan/minghan/cs/cpp-projs/halloc/src/thread_cache.cpp",
+  "output": "CMakeFiles/halloc.dir/src/thread_cache.cpp.o"
+},
+{
+  "directory": "/Users/minghan/minghan/cs/cpp-projs/halloc/build-asan",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/minghan/minghan/cs/cpp-projs/halloc/include -std=c++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.1 -o CMakeFiles/halloc.dir/src/stats.cpp.o -c /Users/minghan/minghan/cs/cpp-projs/halloc/src/stats.cpp",
+  "file": "/Users/minghan/minghan/cs/cpp-projs/halloc/src/stats.cpp",
+  "output": "CMakeFiles/halloc.dir/src/stats.cpp.o"
+},
+{
+  "directory": "/Users/minghan/minghan/cs/cpp-projs/halloc/build-asan",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/minghan/minghan/cs/cpp-projs/halloc/include -std=c++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.1 -o CMakeFiles/halloc_unit_tests.dir/tests/main.cpp.o -c /Users/minghan/minghan/cs/cpp-projs/halloc/tests/main.cpp",
+  "file": "/Users/minghan/minghan/cs/cpp-projs/halloc/tests/main.cpp",
+  "output": "CMakeFiles/halloc_unit_tests.dir/tests/main.cpp.o"
+},
+{
+  "directory": "/Users/minghan/minghan/cs/cpp-projs/halloc/build-asan",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/minghan/minghan/cs/cpp-projs/halloc/include -std=c++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.1 -o CMakeFiles/halloc_stress_tests.dir/tests/stress_main.cpp.o -c /Users/minghan/minghan/cs/cpp-projs/halloc/tests/stress_main.cpp",
+  "file": "/Users/minghan/minghan/cs/cpp-projs/halloc/tests/stress_main.cpp",
+  "output": "CMakeFiles/halloc_stress_tests.dir/tests/stress_main.cpp.o"
+},
+{
+  "directory": "/Users/minghan/minghan/cs/cpp-projs/halloc/build-asan",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/minghan/minghan/cs/cpp-projs/halloc/include -std=c++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.1 -o CMakeFiles/halloc_bench.dir/benchmarks/main.cpp.o -c /Users/minghan/minghan/cs/cpp-projs/halloc/benchmarks/main.cpp",
+  "file": "/Users/minghan/minghan/cs/cpp-projs/halloc/benchmarks/main.cpp",
+  "output": "CMakeFiles/halloc_bench.dir/benchmarks/main.cpp.o"
+}
+]

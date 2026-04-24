@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libhalloc.a CMakeFiles/halloc.dir/src/halloc.cpp.o CMakeFiles/halloc.dir/src/os.cpp.o CMakeFiles/halloc.dir/src/span.cpp.o CMakeFiles/halloc.dir/src/page_heap.cpp.o CMakeFiles/halloc.dir/src/thread_cache.cpp.o CMakeFiles/halloc.dir/src/stats.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libhalloc.a

@@ -1,0 +1,38 @@
+{
+  "active_plan": "/Users/minghan/minghan/cs/cpp-projs/halloc/.sisyphus/plans/halloc-system-design.md",
+  "started_at": "2026-04-24T09:50:28.764Z",
+  "session_ids": [
+    "ses_241509d8bffeD4I5PMJ7pwdK8I",
+    "ses_241029e08ffe5fo5RTq9oNhoPG",
+    "ses_241029de1ffe65qMjZSAqU72oQ",
+    "ses_241026be8ffeO9pzvp8bT1muZX"
+  ],
+  "session_origins": {
+    "ses_241509d8bffeD4I5PMJ7pwdK8I": "direct",
+    "ses_241029e08ffe5fo5RTq9oNhoPG": "appended",
+    "ses_241029de1ffe65qMjZSAqU72oQ": "appended",
+    "ses_241026be8ffeO9pzvp8bT1muZX": "appended"
+  },
+  "plan_name": "halloc-system-design",
+  "agent": "atlas",
+  "task_sessions": {
+    "todo:1": {
+      "task_key": "todo:1",
+      "task_label": "1",
+      "task_title": "Bootstrap repository layout, build system, and formal test harness",
+      "session_id": "ses_241195b14ffeprQ40v6Ns3THeK",
+      "agent": "Sisyphus-Junior",
+      "category": "unspecified-high",
+      "updated_at": "2026-04-24T09:51:49.122Z"
+    },
+    "final-wave:f1": {
+      "task_key": "final-wave:f1",
+      "task_label": "F1",
+      "task_title": "Plan Compliance Audit — oracle",
+      "session_id": "ses_241029de1ffe65qMjZSAqU72oQ",
+      "agent": "Sisyphus-Junior",
+      "category": "deep",
+      "updated_at": "2026-04-24T10:17:36.362Z"
+    }
+  }
+}
